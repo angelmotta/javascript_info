@@ -4,7 +4,7 @@ function loadScript(src, callback) {
     let script = document.createElement("script");
     script.src = src;
     // invoke the callback function received as a parameter
-    script.onload = () => callback(null, script);
+    script.onload = () => callback(null, script); // callback(error, success)
     script.onerror = () =>
         callback(new Error(`Ey bro! Script load error for ${src}`));
     document.head.append(script);
