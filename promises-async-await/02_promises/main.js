@@ -9,4 +9,11 @@ let promise = new Promise(function (resolve, reject) {
     }, 1000);
 });
 
-console.log(promise);
+promise
+    .then((result) => alert(result))
+    .catch((error) => {
+        console.log(`something went wrong bro!`);
+        console.error(error);
+        alert(error);
+    })
+    .finally(() => console.log(`Bye bye bro! (cleanup)`));
