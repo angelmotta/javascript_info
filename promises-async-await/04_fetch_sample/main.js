@@ -56,7 +56,8 @@ function showAvatar(githubuser) {
 // Invoke async functions
 getJsonData("https://javascript.info/article/promise-chaining/user.json")
     .then((userObj) => getGithubUser(userObj.name))
-    .then((githubUser) => showAvatar(githubUser))
+    // handler receive previous return as an argument
+    .then(showAvatar) // same as:  .then((githubUser) => showAvatar(githubUser))
     .then((githubUser) =>
         alert(
             `Finished showing ${githubUser.name} info. Cleaninig all! Bye bro!`
